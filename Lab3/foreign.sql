@@ -1,1 +1,14 @@
+ALTER TABLE Purchase ADD CONSTRAINT fk_purchase_customer
+FOREIGN KEY (customerID) REFERENCES Customer(customerID) ON
+DELETE CASCADE ON
+UPDATE CASCADE;
 
+ALTER TABLE Purchase ADD CONSTRAINT fk_purchase_pharmacy
+FOREIGN KEY (pharmacyID) REFERENCES Pharmacy(pharmacyID) ON
+DELETE RESTRICT ON
+UPDATE CASCADE;
+
+ALTER TABLE DrugsInPurchase ADD CONSTRAINT fk_drugsinpurchase_purchase
+FOREIGN KEY (purchaseID) REFERENCES Purchase(purchaseID) ON
+DELETE CASCADE ON
+UPDATE CASCADE;
